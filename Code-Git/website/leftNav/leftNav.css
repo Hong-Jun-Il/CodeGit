@@ -1,0 +1,187 @@
+:root{
+    --white-color: white;
+    --black-color: black;
+    --background-color: #1c1a1a;
+    --side-nav-background-color: #e9ecef;
+    --text-color: #dee2e6;
+    --btn-background-color: #be2c2c;
+}
+
+*::selection{
+    background-color: var(--text-color);
+    color: var(--background-color);
+}
+
+*{
+    font-family: Cormorant Garamond;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    outline: none;
+    list-style-type: none;
+}
+
+.left-nav{
+    background-color: var(--side-nav-background-color);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    left: -95%;
+    transition: background-color .5s ease-in-out;
+}
+
+.left-nav a{
+    color: var(--background-color);
+    cursor: pointer;
+    transition: color .5s ease-in-out;
+}
+
+.left-nav .booklet{
+    font-style: italic;
+    position: fixed;
+    left: 0%;
+    display: flex;
+    padding: 5% 0 5%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 5%;
+    transition: background-color .5s ease-in-out;
+}
+
+.left-nav .booklet .logo{
+    font-size: 1.2rem;
+}
+
+.left-nav .booklet .logo h1 sup{
+    padding-left: .2rem;
+    font-size: 1.2rem;
+}
+
+/* 햄버거 시작 */
+
+.hamburger{
+    border-radius: 50%;
+    width: 4vw;
+    height: 4vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon{
+    width: 50%;
+    position: absolute;
+    height: 2px;
+    background-color: var(--background-color);
+    transition: background-color .5s ease-in-out;
+}
+
+.icon::after, 
+.icon::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--background-color);
+    left: 0;
+}
+
+.hamburger .icon.menusHovered,
+.icon.menusHovered::after, 
+.icon.menusHovered::before{
+    background-color: var(--text-color);
+}
+
+.hamburger .icon::after{
+    top: 7px;
+    transition: transform .3s cubic-bezier(0.23,1,0.32,1), top .3s .3s cubic-bezier(0.23,1,0.32,1), background-color .5s ease-in-out;
+}
+
+.hamburger .icon::before{
+    bottom: 7px;
+    transition: transform .3s cubic-bezier(0.23,1,0.32,1), bottom .3s .3s cubic-bezier(0.23,1,0.32,1), background-color .5s ease-in-out ;
+}
+
+.hamburger.hamburgerClicked .icon{
+    background: transparent;
+}
+
+.left-nav .booklet .hamburger.hamburgerClicked .icon::after{
+    top: 0;
+    transform: rotate(-45deg);
+    transition: top .3s cubic-bezier(0.23,1,0.32,1), transform .3s .3s cubic-bezier(0.23,1,0.32,1), background-color .5s ease-in-out;;
+}
+
+.left-nav .booklet .hamburger.hamburgerClicked .icon::before{
+    bottom: 0;
+    transform: rotate(45deg);
+    transition: bottom .3s cubic-bezier(0.23,1,0.32,1), transform .3s .3s cubic-bezier(0.23,1,0.32,1), background-color .5s ease-in-out;;
+}
+
+/* 햄버거 끝 */
+
+.left-nav .booklet .latest{
+    width: 10rem;
+    font-size: 1.2rem;
+    font-weight: 1000;
+    transform: rotate(-90deg) translateX(30%);
+}
+
+.left-nav .booklet .border-right{
+    position: absolute;
+    bottom: 0;
+    left: 5rem;
+    height: 0vh;
+    border: 1px solid var(--side-nav-background-color);
+}
+
+.left-nav .left-nav-menu{
+    font-size: 7rem;
+    text-align: center;
+    font-weight: 900;
+}
+
+.left-nav .left-nav-menu .lnm{
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+    text-transform: uppercase;
+    font-family: Garamond;
+}
+
+.left-nav .left-nav-menu .lnm::after{
+    content: attr(data-after);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 15rem;
+    letter-spacing: 50px;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.021);
+    z-index: -1;
+    transition: .3s ease letter-spacing;
+}
+
+.left-nav .left-nav-menu .lnm:hover::after{
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}
+
+.left-nav .left-nav-menu .lnm a{
+    font-family: Garamond;
+    visibility: hidden;
+    transform: translate(0%, 100%);
+    width: fit-content;
+    padding: .8rem;
+}

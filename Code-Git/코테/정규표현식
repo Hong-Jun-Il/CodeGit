@@ -1,0 +1,18 @@
+1. 무슨 문자가 몇 개 이상 나오는 것을 무엇으로 치환하라
+
+ex 1:
+let a = '11111wwwww55451323www63646sss';
+a = a.replace(/w{2,}/g, 'W');
+console.log(a);
+
+ex 2:
+단, ^ . $ [ ] { }같은 경우에는 이스케이프 \를 넣어줘야함
+let a = 'wdsad^^asdfd....f';
+a = a.replace(/\^{2,}/g, '씨발');
+console.log(a);
+
+2. 대괄호 안에서 ^는 not을 의미함
+ex 1:
+let a = 'aaabbbccc';
+a = a.replace(/[^a]/g, 'U');
+console.log(a);

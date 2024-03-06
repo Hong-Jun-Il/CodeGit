@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>당근마켓</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- <section class="sec">여기는 회원가입 로그인 섹션</section> -->
+  <header class="header">
+    <div class="logo">당근마켓</div>
+    <ul class="menus">
+      <li class="menu">메뉴1</li>
+      <li class="menu">메뉴2</li>
+      <li class="menu">메뉴3</li>
+    </ul>
+  </header>
+  <main class="main">
+    <ul class="items">
+      <li class="item">
+        <a href="#">
+          <div class="img-wrapper">
+            <img src="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHN1bW1lciUyMG5pZ2h0fGVufDB8fDB8fHww alt=">
+          </div>
+          <div class="contents">
+            <h3 id="product-name">홍준일</h3>
+            <p id="uploadTime">2024-02-28</p>
+            <p id="price">20000</p>
+          </div>
+        </a>
+      </li>
+
+      <li class="item">
+        <a href="#">
+          <div class="img-wrapper">
+            <img src="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHN1bW1lciUyMG5pZ2h0fGVufDB8fDB8fHww alt=">
+          </div>
+          <div class="contents">
+            <h3 id="product-name">홍준일</h3>
+            <p id="uploadTime">2024-02-28</p>
+            <p id="price">20000</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </main>
+  <button class="write">글쓰기</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyAdajVPcM-Vwma8zku7pnHItTrXtzHibwA",
+    authDomain: "project-b8b76.firebaseapp.com",
+    projectId: "project-b8b76",
+    storageBucket: "project-b8b76.appspot.com",
+    messagingSenderId: "888800516619",
+    appId: "1:888800516619:web:f6491673223005ead5c50e"
+  };
+  const app = initializeApp(firebaseConfig);
+
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  const db = getFirestore(app);
+  const querySnapshot = await getDocs(collection(db, "product"));
+  querySnapshot.forEach((data) => {
+    console.log(data);
+});
+
+</script>
+<script src="index.js"></script>
+
+</html>
