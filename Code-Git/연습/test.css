@@ -1,74 +1,101 @@
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    list-style-type: none;
 }
 
-.wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+html, body{
     width: 100%;
-    min-height: 100vh;
-    transition: background-Color .7s ease;
-}
-
-.project{
-    width: 500px;
-    height: 500px;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
+    height: 100vh;
     overflow: hidden;
-    transition: .4s;
-    border-radius: 15px;
 }
 
-.project:hover{
-    transform: scale(1.03);
-    filter: grayscale(.8);
-}
-
-.project img{
+.container{
     width: 100%;
-    height: 100%;
+    height: 100vh;
+}
+
+video{
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.copy{
     position: absolute;
-    z-index: 1;
+    top: 50%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
-.info{
+.blocks{
+    width: 100%;
+    height: 100vh;
+}
+
+.block{
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    z-index: 0;
+    background: #fff;
+}
+
+.block-left{
+    left: 0;
+}
+
+.block-right{
+    right: 0;
+}
+
+.letter{
     position: absolute;
-    z-index: 2;
-    margin-left: 25px;
-    font-size: 20px;
-    color: black;
+    z-index: 10000;
+    padding: 0 0.2em;
+    font-size: 8em;
+    color: #fff;
+    mix-blend-mode: difference;
 }
 
-.info p{
-    border-radius: 200px;
-    background-color: white;
-    text-align: center;
-    padding: 12px 40px;
-    margin-bottom: 20px;
+.row{
+    width: 100%;
+    height: 50vh;
 }
 
-.info p:nth-child(1),
-.info p:nth-child(2){
-    opacity: 0;
-    transition: .4s;
+.top-left, 
+.top-right, 
+.bottom-right{
+    position: absolute;
+    z-index: 10000;
 }
 
-.info p:nth-child(2){
-    margin-bottom: 40px;
-    transition-delay: .1s !important;
+.top-left{
+    top: 32%;
+    left: 42%;
 }
 
+.top-right{
+    top: 32%;
+    right: 42%;
+}
 
-.project:hover .info p:nth-child(1),
-.project:hover .info p:nth-child(2){
-    opacity: 1;
-    transform: translateY(40%);
+.bottom-right{
+    bottom: 32%;
+    right: 42%;
+}
+
+@media(max-width: 900px){
+    .letter{
+        font-size: 2em;
+    }
 }

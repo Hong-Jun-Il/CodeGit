@@ -219,8 +219,8 @@ function projectSecAni() {
                 trigger: item,
                 start: 'top 100%',
             },
+            onComplete: selectFunc()
         })
-        selectFunc()
     });
 }
 
