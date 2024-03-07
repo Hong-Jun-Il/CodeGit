@@ -34,7 +34,9 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 document.querySelector('.container').addEventListener('mousewheel', ()=>{
-    if (isAnimating) return;
+    if (isAnimating){
+        return;
+    }
 
     isAnimating = true;
 

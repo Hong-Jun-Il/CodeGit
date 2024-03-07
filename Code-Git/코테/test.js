@@ -1,18 +1,15 @@
-    // let input=require('fs').readFileSync('코테/test.txt').toString();    
-    let input=require('fs').readFileSync('/dev/stdin').toString();
+    let input=require('fs').readFileSync('Code-Git/코테/test.txt').toString().trim().split('\n');    
+    // let input=require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
     
-    input = Number(input);
+    let price = Number(input.shift().split(' ')[1]);
+    let answer = 0;
+    input = input.map(Number);
 
-    let ar = [];
+    input.sort((a,b)=>b-a);
 
-    for(let i = 1; i <= input; i++){
-        ar.push(i);
+    for(let i = 0; i < input.length; i++){
+        answer+= Math.trunc(price / input[i]);
+        price %= input[i];
     }
 
-    while(ar.length!==1){
-        ar.shift();
-        let a = ar.shift();
-        ar.push(a);
-    }
-
-    console.log(ar[0]);
+    console.log(answer);
