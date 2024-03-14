@@ -1,13 +1,16 @@
-    let input=require('fs').readFileSync('Code-Git/코테/test.txt').toString().trim().split('\n').map(e=>e.trim());    
-    // let input=require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+    let input=require('fs').readFileSync('Code-Git/코테/test.txt').toString().trim();    
+    // let input=require('fs').readFileSync('/dev/stdin').toString().trim().split(' ').map(Number); 
     
-    let ar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const n = Number(input);
 
-    let n = 2;
-    let s = 59;
+    const arr = Array(n+1).fill(true).fill(false, 0, 2);
 
-    console.log("일 월 화 수 목 금 토");
-    
-    s %= 7; 
+    for(let i = 2; i * i <= n; i++){
+        if(arr[i]){
+            for(let j = i * i; j <= n; j+=i){
+                arr[j] = false;
+            }
+        }
+    }
 
-    console.log('  ' + ' '.repeat(s*3)+'d');
+    console.log(arr.filter((e, i) => e).length);

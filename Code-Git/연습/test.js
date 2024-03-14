@@ -1,48 +1,27 @@
-gsap.from('.letter', 0.8, {
-    y: -20,
-    opacity: 0,
-    ease: 'power3.inOut',
-    stagger: 0.1,
-});
+const splitText = () =>{
+    const test = document.querySelector('.test');
+    const splitedText = Array.from(test.innerText).map(e=>{
+        return `<span>${e==' ' ? '&nbsp;&nbsp' : e}</span>`;
+    }).join('');
 
-gsap.to('.top-left, .top-right', 2, {
-    top: 0,
-    ease: 'power3.inOut',
-    delay: 2,
-});
+    test.innerHTML = splitedText;
+}
 
-gsap.to('.bottom-right', 2, {
-    bottom: 0,
-    ease: 'power3.inOut',
-    delay: 2,
-});
+splitText();
 
-gsap.to('.top-left', 2, {
-    left: 0,
-    ease: 'power3.inOut',
-    delay: 4,
-});
-
-gsap.to('.top-right', 2, {
-    right: 0,
-    ease: 'power3.inOut',
-    delay: 4,
-});
-
-gsap.to('.bottom-right', 2, {
-    right: 0,
-    ease: 'power3.inOut',
-    delay: 4,
-});
-
-gsap.to('.block-right', 2,{
-    right: '-50%',
-    ease: 'power3.inOut',
-    delay: 4,
+document.addEventListener('DOMContentLoaded', ()=>{
+    gsap.set('span', {
+        y: 200,
+        opacity: 0,
+        rotation: 60,
+    })
 })
 
-gsap.to('.block-left', 2,{
-    left: '-50%',
-    ease: 'power3.inOut',
-    delay: 4,
+gsap.to('span', {
+    y: 0,
+    stagger: .1,
+    opacity: 1, 
+    ease: 'expo.inOut',
+    duration: 1,
+    rotation: 0,
 })
