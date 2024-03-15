@@ -34,13 +34,16 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 document.querySelector('.container').addEventListener('mousewheel', ()=>{
-    if (isAnimating) return;
+    if (isAnimating){
+        return;
+    }
 
     isAnimating = true;
 
     let slider = document.querySelector('.slider');
     let cards = Array.from(slider.querySelectorAll('.card'));
     let lastCard = cards.pop();
+    console.log(cards);
     let nextCard = cards[cards.length - 1];
 
     gsap.to(lastCard.querySelectorAll('h1 span'), {
