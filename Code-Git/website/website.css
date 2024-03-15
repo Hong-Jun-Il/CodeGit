@@ -493,6 +493,7 @@ section{
     margin-left: 25px;
     margin-bottom: 10px;
     padding: 12px 40px;
+    /* width: max-content; */
     font-size: 20px;
     font-weight: 800;
 }

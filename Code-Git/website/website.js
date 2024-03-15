@@ -218,10 +218,9 @@ function projectSecAni() {
             scrollTrigger: {
                 trigger: item,
                 start: 'top 100%',
-                markers: true
             },
+            onComplete: selectFunc()
         })
-        selectFunc();
     });
 }
 
