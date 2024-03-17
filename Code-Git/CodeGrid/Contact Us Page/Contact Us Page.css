@@ -22,6 +22,10 @@ button{
     cursor: pointer;
 }
 
+h1{
+    text-transform: uppercase;
+}
+
 button#toggle{
     background: #000;
     color: #fff;
@@ -64,8 +68,13 @@ button:hover{
     text-align: center;
 }
 
+.header-text{
+    overflow: hidden;
+
+}
+
 .header-text h1{
-    font-size: 20vw;
+    font-size: 10vw;
     font-weight: lighter;
 }
 
@@ -84,6 +93,7 @@ button:hover{
     padding: 1em;
     pointer-events: none;
     opacity: 0;
+    display: none;
 }
 
 .col:nth-child(1){
