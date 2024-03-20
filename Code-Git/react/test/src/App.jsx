@@ -1,35 +1,13 @@
-import './App.css';
-import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/Contact';
+  import './App.css';
+  import Home from './components/Home';
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <div className="header">
-          <div className="logo">홍<br />준일</div>
-        </div>
-        <ul>
-          <li>
-            <Link className="link" to="/">Home</Link>
-          </li>
-          <li>
-            <Link className="link" to="/about">About</Link>
-          </li>
-          <li>
-            <Link className='link' to="/contact">Contact</Link>
-          </li>
-        </ul>
-        <Routes>
-          <Route path='/' element={< Home />}/>
-          <Route path='/about' element={ <About />} />
-          <Route path='/contact' element={<Contact />}/>
-        </Routes>
-      </Router>
-    </div>
-  );
-}
+  function App() {
+    return (
+      <div className='test'>
+        <Home name = "react" id = "1" color = "red"></Home>
+        <Home name = "react" id = "1" color = "red"></Home>
+      </div>
+    );
+  }
 
-export default App;
+  export default App;

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Home = () => {
+const Home = ({name, id, color}) => {
     return (
-        <div>
-            ddd
+        <div style={{color}}>
+            Hello, {name}, {id}
         </div>
     );
 };
