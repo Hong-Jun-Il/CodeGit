@@ -1,24 +1,33 @@
-import { useState } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
 
 function App() {
-
-  const [text, setText] = useState('');
-
-  function reset() {
-    setText('');
-  }
-
-  function change(e){
-    setText(e.target.value);
-  }
-
   return (
-    <div className="sec">
-      <div>입력하세요</div>
-      <input type="text" onChange={change} value = {text} />
-      <button onClick={reset}>초기화</button>
-      <div>{text}</div>
+    <div className="App">
+      <Router>
+        <div className="header">
+          <div className="logo">홍<br />준일</div>
+        </div>
+        <ul>
+          <li>
+            <Link className="link" to="/">Home</Link>
+          </li>
+          <li>
+            <Link className="link" to="/about">About</Link>
+          </li>
+          <li>
+            <Link className='link' to="/contact">Contact</Link>
+          </li>
+        </ul>
+        <Routes>
+          <Route path='/' element={< Home />}/>
+          <Route path='/about' element={ <About />} />
+          <Route path='/contact' element={<Contact />}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
