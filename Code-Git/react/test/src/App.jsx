@@ -1,13 +1,12 @@
-  import './App.css';
-  import Home from './components/Home';
+import './App.css';
+import Counter from './components/Counter';
 
-  function App() {
-    return (
-      <div className='test'>
-        <Home name = "react" id = "1" color = "red"></Home>
-        <Home name = "react" id = "1" color = "red"></Home>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className='test'>
+      <Counter />
+    </div>
+  );
+}
 
-  export default App;
+export default App;
