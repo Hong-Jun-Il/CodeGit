@@ -1,19 +1,41 @@
-const ar = [1, 2, 3, 4, 5, 6, 7, 8];
-let n = 1;
-const wrapper = document.querySelector('.wrapper');
+const tl = gsap.timeline();
+const sec = document.querySelectorAll(".sec");
+const li = document.querySelectorAll('li');
+let i = 3;
+let isAnimating = false;
+let currentSection = document.querySelector('.sec1');
 
-ar.map((e, i) => {
-    const child = document.createElement('span');
-    child.textContent = e;
-    if (i % 2 == 0) {
-        const parent = document.createElement('div');
-        parent.classList.add(`ts${n}`);
-        parent.classList.add('ts');
-        parent.appendChild(child);
-        wrapper.appendChild(parent);
-        n++;
-    } else {
-        const parent = document.querySelector(`.ts${n - 1}`);
-        parent.appendChild(child);
-    }
+li.forEach(e => {
+    e.addEventListener("click", () => {
+        const dataTarget = e.getAttribute('data-target');
+        const target = document.querySelector(`.${dataTarget}`);
+        if (currentSection == target || isAnimating) {
+            console.log('현재 섹션이거나 애니메이션 중');
+            return;
+        }
+        currentSection = target;
+        isAnimating = true;
+
+        tl.fromTo(target, {
+            zIndex: i++,
+            left: '200%',
+            duration: 2,
+            scale: .5,
+            ease: 'power4.inOut',
+        }, {
+            duration: 2,
+            left: '50%',
+            scale: .5,
+            transform: 'translateX(-50%)',
+            ease: 'power4.inOut',
+        })
+        .to(target, {
+                scale: 1,
+                ease: 'power4.inOut',
+                duration: 1.5,
+                onComplete: ()=>{
+                    isAnimating = false;
+                }
+            })
+    })
 })

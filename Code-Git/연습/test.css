@@ -12,17 +12,50 @@
     color: var(--text-color);
 }
 
-.test{
+.sec{
+    min-height: 100vh;
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--bg-color);
+    position: fixed;
 }
 
-.wrapper{
+.nav{
+    position: fixed;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    width: 200px;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999999;
+    background-color: seagreen;
+}
+
+.nav ul{
+    display: flex;
+    width: 100%;
+    font-size: 3rem;
+    justify-content: space-around;
+}
+
+ul li{
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+.sec1{
+    background-color: var(--bg-color);
+    z-index: 3;
+}
+
+.sec2{
+    background-color: antiquewhite;
+    color: var(--bg-color);
+    z-index: 2;
+}
+
+.sec3{
+    background-color: aquamarine;
+    color: black;
+    z-index: 1;
 }
