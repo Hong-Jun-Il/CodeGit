@@ -1,0 +1,177 @@
+:root {
+    --white-color: #fff;
+    --blue-color: #4A86FF;
+    --black-color: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+html, body{
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.section-wrapper{
+    max-width: 3000px;
+    /* border: 1px solid red; */
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* settings end */
+
+/* intro start */
+
+.overlay {
+    width: 100%;
+    height: 50vh;
+    position: fixed;
+    z-index: 999999999999;
+}
+
+.overlay-top {
+    top: 0;
+    background: var(--white-color);
+}
+
+.overlay-bottom {
+    bottom: 0;
+    background: var(--white-color);
+}
+
+.line{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 999999999999;
+    width: 0%;
+    height: 1px;
+    background: var(--blue-color);
+}
+
+.counter-wrapper{
+    position: absolute;
+    z-index: 999999999999;
+    bottom: 0;
+    padding: 80px 60px;
+}
+
+.counter-wrapper h1{
+    position: relative;
+    font-size: 300px;
+    font-weight: 300;
+    line-height: 100%;
+    color: var(--blue-color);
+}
+
+.counter-wrapper::after{
+    content: "";
+    position: absolute;
+    top: -400px;
+    width: 100%;
+    height: 100%;
+    background: var(--white-color);
+}
+
+/* intro end */
+
+/* nav start */
+.nav {
+    width: 100%;
+    /* height: 120px; */
+    height: 0px;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    z-index: 999999999999999999999999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--white-color);
+    border-bottom: 1px solid var(--blue-color);
+}
+
+.logo {
+    width: 340px;
+    height: 62px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.links li{
+    padding: 12px 24px;
+    /* font-family: Inter; */
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* nav end */
+
+/* home start */
+
+.home{
+    background: var(--blue-color);
+    z-index: 3;
+}
+
+.intro-text{
+    text-align: center;
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 150%;
+    color: var(--white-color);
+}
+
+/* home end */
+
+/* about start */
+
+.about{
+    z-index: 2;
+    background: var(--white-color);
+}
+
+/* about end */
+
+/* hobby start */
+
+.hobby{
+    z-index: 1;
+    background: var(--white-color);
+}
+
+/* hobby end */

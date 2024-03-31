@@ -1,27 +1,41 @@
-const splitText = () =>{
-    const test = document.querySelector('.test');
-    const splitedText = Array.from(test.innerText).map(e=>{
-        return `<span>${e==' ' ? '&nbsp;&nbsp' : e}</span>`;
-    }).join('');
+const tl = gsap.timeline();
+const sec = document.querySelectorAll(".sec");
+const li = document.querySelectorAll('li');
+let i = 3;
+let isAnimating = false;
+let currentSection = document.querySelector('.sec1');
 
-    test.innerHTML = splitedText;
-}
+li.forEach(e => {
+    e.addEventListener("click", () => {
+        const dataTarget = e.getAttribute('data-target');
+        const target = document.querySelector(`.${dataTarget}`);
+        if (currentSection == target || isAnimating) {
+            console.log('현재 섹션이거나 애니메이션 중');
+            return;
+        }
+        currentSection = target;
+        isAnimating = true;
 
-splitText();
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    gsap.set('span', {
-        y: 200,
-        opacity: 0,
-        rotation: 60,
+        tl.fromTo(target, {
+            zIndex: i++,
+            left: '200%',
+            duration: 2,
+            scale: .5,
+            ease: 'power4.inOut',
+        }, {
+            duration: 2,
+            left: '50%',
+            scale: .5,
+            transform: 'translateX(-50%)',
+            ease: 'power4.inOut',
+        })
+        .to(target, {
+                scale: 1,
+                ease: 'power4.inOut',
+                duration: 1.5,
+                onComplete: ()=>{
+                    isAnimating = false;
+                }
+            })
     })
-})
-
-gsap.to('span', {
-    y: 0,
-    stagger: .1,
-    opacity: 1, 
-    ease: 'expo.inOut',
-    duration: 1,
-    rotation: 0,
 })

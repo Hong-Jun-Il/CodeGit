@@ -1,26 +1,63 @@
-import { useState } from 'react';
-import './App.css';
+import "./App.css"
+import React, { useRef, useState } from 'react';
+import UserList from "./components/UserList";
+import Input from "./components/Input";
 
-function App() {
+const App = () => {
+  const [users, setUsers] = useState([
+    {
+      id: 1,
+      username: "홍준일",
+      email: '네이버'
+    },
+    {
+      id: 2,
+      username: "홍앙순",
+      email: '구글'
+    },
+    {
+      id: 3,
+      username: "홍깡순",
+      email: '카카오'
+    },
+  ])
 
-  const [text, setText] = useState('');
+  const nextId = useRef(4);
 
-  function reset() {
-    setText('');
+  const [input, setInput] = useState({
+    id: nextId.current,
+    username: '',
+    email: ''
+  })
+
+  function inputChanges(e){
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    })
   }
 
-  function change(e){
-    setText(e.target.value);
+  function createUserInfo(){
+    setUsers([
+      ...users,
+      input
+    ])
+
+    setInput({
+      username: '',
+      email: '',
+    })
+    nextId.current++;
   }
 
   return (
-    <div className="sec">
-      <div>입력하세요</div>
-      <input type="text" onChange={change} value = {text} />
-      <button onClick={reset}>초기화</button>
-      <div>{text}</div>
+    <div className="test">
+      <Input create = {createUserInfo} inputChanges = {inputChanges} input = {input} />
+      {users.map(user => {
+        return <UserList key={user.id} userInfo={user} />
+      })}
     </div>
   );
-}
+};
 
 export default App;
